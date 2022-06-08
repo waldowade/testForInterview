@@ -1,4 +1,5 @@
 package waldo.wade.testforinterview.ViewList
+
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -11,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.annotation.NonNull
 import androidx.recyclerview.widget.RecyclerView
 
@@ -29,46 +31,69 @@ internal class CustomAdapter(mContext: Context, private var itemsList: List<User
     RecyclerView.Adapter<CustomAdapter.MyViewHolder>() {
     var mUserHandlerThread: HandlerThread? = null
     var mUserHandler: Handler? = null
-    var mContext:Context? = null
-    init{
+    var mContext: Context? = null
+
+    init {
         mUserHandlerThread = HandlerThread("mJsoupHandlerThread");
         mUserHandlerThread!!.start();
         mUserHandler = Handler(mUserHandlerThread!!.looper)
         this.mContext = mContext
     }
+
     internal inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var itemTextView: TextView = view.findViewById(R.id.itemTextView)
         val mAvatarImageView: ImageView = view.findViewById(R.id.AvatarImageView)
 
 
     }
+
     @NonNull
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView = LayoutInflater.from(parent.context)
             .inflate(R.layout.list_item, parent, false)
         return MyViewHolder(itemView)
     }
+
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val item = itemsList[position]
         holder.itemTextView.text = item.login
 
         //post head image
         LoadImageTask(holder.mAvatarImageView).execute(item.avatar_url)
+
+
+        holder.itemView.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(p0: View?) {
+                Toast.makeText(mContext, "Hello Javatpoint", Toast.LENGTH_SHORT).show();
+                var mUserDetailItem: UserDetailItem = UserDetailItem(
+                    mContext!!,
+                    item.avatar_url,
+                    //item.user_name,
+                    //item.bio,
+                    item.login,
+                    item.site_admin
+                    //item.location,
+                    //item.blog
+                )
+                mUserDetailItem.detailUserInfo()
+            }
+
+        });
     }
+
     override fun getItemCount(): Int {
         return itemsList.size
     }
 
-    class UserRunnable(url:String):Runnable{
+    class UserRunnable(url: String) : Runnable {
         override fun run() {
             TODO("Not yet implemented")
 
         }
     }
-    class LoadImageTask(private val imageView: ImageView) : AsyncTask<String, Void, Bitmap>()
-    {
-        override fun doInBackground(vararg urls: String): Bitmap?
-        {
+
+    class LoadImageTask(private val imageView: ImageView) : AsyncTask<String, Void, Bitmap>() {
+        override fun doInBackground(vararg urls: String): Bitmap? {
             try {
                 val stream = URL(urls[0]).openStream()
 
@@ -80,8 +105,7 @@ internal class CustomAdapter(mContext: Context, private var itemsList: List<User
             return null
         }
 
-        override fun onPostExecute(bitmap: Bitmap?)
-        {
+        override fun onPostExecute(bitmap: Bitmap?) {
             imageView.setImageBitmap(bitmap)
         }
     }
