@@ -6,7 +6,6 @@ import android.graphics.BitmapFactory
 import android.os.AsyncTask
 import android.os.Handler
 import android.os.HandlerThread
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,13 +15,8 @@ import android.widget.Toast
 import androidx.annotation.NonNull
 import androidx.recyclerview.widget.RecyclerView
 
-import com.google.gson.Gson
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import org.jsoup.Jsoup
-import org.jsoup.nodes.Document
 import waldo.wade.testforinterview.R
+import waldo.wade.testforinterview.UserLauncher
 import java.io.IOException
 import java.net.URL
 
@@ -65,7 +59,7 @@ internal class CustomAdapter(mContext: Context, private var itemsList: List<User
         holder.itemView.setOnClickListener(object : View.OnClickListener {
             override fun onClick(p0: View?) {
                 Toast.makeText(mContext, "Hello Javatpoint", Toast.LENGTH_SHORT).show();
-                var mUserDetailItem: UserDetailItem = UserDetailItem(
+                var mUserDetailItem: UserLauncher = UserLauncher(
                     mContext!!,
                     item.avatar_url,
                     //item.user_name,
@@ -85,13 +79,6 @@ internal class CustomAdapter(mContext: Context, private var itemsList: List<User
         return itemsList.size
     }
 
-    class UserRunnable(url: String) : Runnable {
-        override fun run() {
-            TODO("Not yet implemented")
-
-        }
-    }
-
     class LoadImageTask(private val imageView: ImageView) : AsyncTask<String, Void, Bitmap>() {
         override fun doInBackground(vararg urls: String): Bitmap? {
             try {
@@ -109,26 +96,4 @@ internal class CustomAdapter(mContext: Context, private var itemsList: List<User
             imageView.setImageBitmap(bitmap)
         }
     }
-
-//    val mJsoupRunnable:Runnable = object:Runnable{
-//        override fun run() {
-//            mJsoupHandler!!.removeCallbacks(this)
-//            val doc: Document =
-//                Jsoup.connect("https://api.github.com/users").ignoreContentType(true).get()
-//            val resultString: String = doc.body().text()
-//            Log.d(TAG,"rrrrrresultString : ${resultString}")
-//
-//            var mGson = Gson()
-//            val mUserItemArray: Array<UserItem> = mGson.fromJson(resultString, Array<UserItem>::class.java)
-//            for(i in mUserItemArray.indices)
-//            {
-//                itemsList.add(mUserItemArray[i].avatar_url.toString())
-//            }
-//
-//            GlobalScope.launch (Dispatchers.Main){
-//                customAdapter.notifyDataSetChanged()
-//            }
-//
-//
-//        }
 }
