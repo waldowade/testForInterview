@@ -11,6 +11,8 @@ import android.os.Handler
 import android.os.HandlerThread
 import android.util.Log
 import android.view.View
+import android.view.Window
+import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -42,8 +44,11 @@ class DetailActivity : AppCompatActivity() {
     var mDetailHandler: Handler? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        supportActionBar?.hide()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
+
+
         title = "Github users"
         mUserImageView = findViewById(R.id.UserImageView)
         backImageView = findViewById(R.id.backImageView)
