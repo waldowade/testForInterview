@@ -59,7 +59,7 @@ internal class CustomAdapter(mContext: Context, private var itemsList: List<User
         holder.itemView.setOnClickListener(object : View.OnClickListener {
             override fun onClick(p0: View?) {
                 Toast.makeText(mContext, "Hello Javatpoint", Toast.LENGTH_SHORT).show();
-                var mUserDetailItem: UserLauncher = UserLauncher(
+                var mUserDetailItem = UserLauncher(
                     mContext!!,
                     item.avatar_url,
                     //item.user_name,

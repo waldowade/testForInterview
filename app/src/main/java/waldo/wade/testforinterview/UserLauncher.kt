@@ -60,9 +60,6 @@ class UserLauncher(
 //            field = value
 //        }
 
-    /*constructor(name: String, age: Int, point: Int) : this(name, age) {
-        this.user_name = point
-    }*/
     fun detailUserInfo()
     {
         newDetailActivity(mContext!!, "${avatar_url}",
@@ -70,27 +67,11 @@ class UserLauncher(
             "${site_admin}"
         )
     }
-    class UserDetailRunnable(url: String) : Runnable {
-        override fun run() {
-            TODO("Not yet implemented")
-
-        }
-    }
-
     fun newDetailActivity(
         mContext: Context, mAvatarUrl: String,
         mLogin: String,
         mSiteAdmin: String
     ) {
-Log.d(TAG,"newDetailActivity ${mAvatarUrl} ${mLogin} ${mSiteAdmin}")
-//        val myIntent = Intent(mContext, DetailActivity::class.java)
-//        var mBundle:Bundle = Bundle()
-//        mBundle.putString("EXTRA_mAvatarUrl", mAvatarUrl)
-//        mBundle.putString("EXTRA_mLogin", mLogin)
-//        mBundle.putString("EXTRA_mSiteAdmin", mSiteAdmin)
-//        myIntent.putExtras(mBundle)
-//        myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//        startActivity(mContext,myIntent!!,null)
 
         var myIntent = Intent()
         myIntent.setClass(mContext,DetailActivity().javaClass)
@@ -102,26 +83,6 @@ Log.d(TAG,"newDetailActivity ${mAvatarUrl} ${mLogin} ${mSiteAdmin}")
         myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         myIntent.putExtras(mBundle)
         mContext.startActivity(myIntent)
-
-//        val editText = EditText(mContext)
-//        if (PosBtnLabel.equals("添加"))
-//            editText.setText("伏地挺身")
-//        else if (PosBtnLabel.equals("完成"))
-//            editText.setText("25")
-//        MaterialAlertDialogBuilder(mContext)
-//            .setMessage(mMessage)
-//            .setView(editText)
-//            .setPositiveButton(PosBtnLabel) { dialog, _ ->
-//                if (PosBtnLabel.equals("添加")) {
-//                } else {
-//                }
-//
-//                dialog.dismiss()
-//            }
-//            .setNegativeButton(NegBtnLabel) { dialog, _ ->
-//                dialog.dismiss()
-//            }
-//            .show()
     }
 
 }

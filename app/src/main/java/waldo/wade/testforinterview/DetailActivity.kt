@@ -52,9 +52,7 @@ class DetailActivity : AppCompatActivity() {
         mDetailHandlerThread = HandlerThread("mDetailHandlerThread");
         mDetailHandlerThread!!.start();
         mDetailHandler = Handler(mDetailHandlerThread!!.looper)
-
-        //post head image
-
+        //head image
         LoadImageTask(mUserImageView!!).execute(this.intent.extras!!.getString("EXTRA_mAvatarUrl"))
         backImageView!!.setOnClickListener(object:View.OnClickListener{
             override fun onClick(p0: View?) {
@@ -77,11 +75,6 @@ class DetailActivity : AppCompatActivity() {
                 mDetailHandler!!
             )
         )
-//        mBundle.putString("EXTRA_mAvatarUrl", mAvatarUrl)
-//        mBundle.putString("EXTRA_mLogin", mLogin)
-//        mBundle.putString("EXTRA_mSiteAdmin", mSiteAdmin)
-
-//        LoadImageTask(mUserImageView).execute("https://avatars.githubusercontent.com/u/2?v=4")
     }
 
     class UserDetailRunnable(

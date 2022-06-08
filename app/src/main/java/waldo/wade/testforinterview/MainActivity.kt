@@ -65,20 +65,6 @@ class MainActivity : AppCompatActivity() {
 
     }
     private fun prepareItems() {
-//        itemsList.add("Item 1")
-//        itemsList.add("Item 2")
-//        itemsList.add("Item 3")
-//        itemsList.add("Item 4")
-//        itemsList.add("Item 5")
-//        itemsList.add("Item 6")
-//        itemsList.add("Item 7")
-//        itemsList.add("Item 8")
-//        itemsList.add("Item 9")
-//        itemsList.add("Item 10")
-//        itemsList.add("Item 11")
-//        itemsList.add("Item 12")
-//        itemsList.add("Item 13")
-//        customAdapter.notifyDataSetChanged()
         mJsoupHandler!!.postDelayed(mJsoupRunnable,100)
     }
 }
