@@ -33,6 +33,7 @@ class DetailActivity : AppCompatActivity() {
     var backImageView: ImageView? = null
     var mbioImageView: ImageView? = null
     var mNameTextView: TextView? = null
+    var mLoginTextView:TextView? = null
     var mLocationTextView: TextView? = null
     var mUrlTextView: TextView? = null
     var mSingleUserName: String? = null
@@ -47,6 +48,7 @@ class DetailActivity : AppCompatActivity() {
         backImageView = findViewById(R.id.backImageView)
         mbioImageView = findViewById(R.id.bioImageView)
         mNameTextView = findViewById(R.id.NameTextView)
+        mLoginTextView = findViewById(R.id.LoginTextView)
         mLocationTextView = findViewById(R.id.LocationTextView)
         mUrlTextView = findViewById(R.id.UrlTextView)
         mDetailHandlerThread = HandlerThread("mDetailHandlerThread");
@@ -61,8 +63,10 @@ class DetailActivity : AppCompatActivity() {
 
         })
         mNameTextView!!.text = "nnnnnnnnnnnname"
+
         mLocationTextView!!.text = "lllllllocation"
         mSingleUserName = this.intent.extras!!.getString("EXTRA_mLogin")
+        mLoginTextView!!.text = mSingleUserName
         mUrlTextView!!.text = this.intent.extras!!.getString("EXTRA_mAvatarUrl")
         mDetailHandler!!.post(
             UserDetailRunnable(

@@ -69,7 +69,17 @@
                 android:paddingLeft="11dp"
                 android:src="@android:drawable/ic_menu_myplaces"></ImageView>
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
 
+            <TextView
+                android:id="@+id/NameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NameTextView" />
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -100,10 +110,10 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/NameTextView"
+                android:id="@+id/LoginTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="NameTextView" />
+                android:text="LoginTextView" />
         </LinearLayout>
     </LinearLayout>
 
