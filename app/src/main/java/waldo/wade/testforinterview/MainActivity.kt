@@ -35,28 +35,29 @@ class MainActivity : AppCompatActivity() {
         mJsoupHandlerThread!!.start();
         mJsoupHandler = Handler(mJsoupHandlerThread!!.looper)
 
-        customAdapter = CustomAdapter(applicationContext,itemsList)
+        customAdapter = CustomAdapter(applicationContext, itemsList)
         val layoutManager = LinearLayoutManager(applicationContext)
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = customAdapter
         prepareItems()
     }
-    val mJsoupRunnable:Runnable = object:Runnable{
+
+    val mJsoupRunnable: Runnable = object : Runnable {
         override fun run() {
             mJsoupHandler!!.removeCallbacks(this)
             val doc: Document =
                 Jsoup.connect("https://api.github.com/users").ignoreContentType(true).get()
             val resultString: String = doc.body().text()
-            Log.d(TAG,"rrrrrresultString : ${resultString}")
+            Log.d(TAG, "rrrrrresultString : ${resultString}")
 
             var mGson = Gson()
-            val mUserItemArray: Array<UserItem> = mGson.fromJson(resultString, Array<UserItem>::class.java)
-            for(i in mUserItemArray.indices)
-            {
+            val mUserItemArray: Array<UserItem> =
+                mGson.fromJson(resultString, Array<UserItem>::class.java)
+            for (i in mUserItemArray.indices) {
                 itemsList.add(mUserItemArray[i])
             }
 
-            GlobalScope.launch (Dispatchers.Main){
+            GlobalScope.launch(Dispatchers.Main) {
                 customAdapter.notifyDataSetChanged()
             }
 
@@ -64,7 +65,8 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
     private fun prepareItems() {
-        mJsoupHandler!!.postDelayed(mJsoupRunnable,100)
+        mJsoupHandler!!.postDelayed(mJsoupRunnable, 100)
     }
 }

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,27 +20,29 @@
             android:paddingLeft="11dp"
             android:src="@drawable/gray_cross"></ImageView>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="4"
         android:gravity="center"
         android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center">
-        <androidx.cardview.widget.CardView
-            android:id="@+id/CardView"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_gravity="center"
-            android:elevation="12dp"
-            android:innerRadius="0dp"
-            android:shape="ring"
-            android:thicknessRatio="1.9"
-            app:cardCornerRadius="40dp">
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/CardView"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:elevation="12dp"
+                android:innerRadius="0dp"
+                android:shape="ring"
+                android:thicknessRatio="1.9"
+                app:cardCornerRadius="40dp">
 
 
                 <ImageView
@@ -51,24 +54,9 @@
                     android:src="@drawable/ic_launcher_background"></ImageView>
 
 
-
-        </androidx.cardview.widget.CardView>
-    </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center">
-
-            <ImageView
-                android:id="@+id/bioImageView"
-
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_centerHorizontal="true"
-                android:gravity="left"
-                android:paddingLeft="11dp"
-                android:src="@android:drawable/ic_menu_myplaces"></ImageView>
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -78,10 +66,45 @@
                 android:id="@+id/NameTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="20dp"
                 android:text="NameTextView" />
         </LinearLayout>
-    </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/bioTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:text="NameTextView" />
+<!--            <ImageView-->
+<!--                android:id="@+id/bioImageView"-->
+<!--                android:layout_width="80dp"-->
+<!--                android:layout_height="80dp"-->
+<!--                android:layout_centerHorizontal="true"-->
+<!--                android:gravity="left"-->
+<!--                android:paddingLeft="11dp"-->
+<!--                android:src="@android:drawable/ic_menu_myplaces"></ImageView>-->
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:paddingLeft="11dp"
+        android:paddingRight="11dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#C8C5C5" />
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -170,7 +193,7 @@
                 android:layout_centerHorizontal="true"
                 android:gravity="left"
                 android:paddingLeft="11dp"
-                android:src="@android:drawable/zoom_plate"></ImageView>
+                android:src="@android:drawable/ic_menu_set_as"></ImageView>
         </LinearLayout>
 
         <LinearLayout
@@ -182,7 +205,49 @@
                 android:id="@+id/UrlTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="NameTextView" />
+                android:textColor="@color/blue"
+                android:text="UrlTextView" />
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/LabelSiteAdminTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:gravity="center"
+                    android:paddingLeft="11dp"
+                    android:textStyle="italic"
+                    android:textSize="15dp"
+                    android:text="site_admin" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/SiteAdminTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/blue"
+                android:text="SiteAdminTextView" />
         </LinearLayout>
 
     </LinearLayout>
