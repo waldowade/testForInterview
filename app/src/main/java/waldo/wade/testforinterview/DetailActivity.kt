@@ -136,7 +136,8 @@ class DetailActivity : AppCompatActivity() {
                 mUrlTextView!!.text = mUserDetailItem.blog
                 mSiteAdminTextView!!.text = mUserDetailItem.site_admin
                 mbioTextView!!.text = mUserDetailItem.bio
-                //LoadImageTask(mbioTextView!!).execute(mUserDetailItem.bio)
+
+                //blog click
                 mUrlTextView!!.setOnClickListener(object : View.OnClickListener {
                     override fun onClick(p0: View?) {
                         var browserIntent =
