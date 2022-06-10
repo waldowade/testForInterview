@@ -9,6 +9,7 @@ import kotlinx.coroutines.launch
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 
+//Below values are all available for usages , after DetailActivity gson parse was executed
 class UserDetailItem(mContext: Context?) {
     val TAG = this.javaClass.simpleName
     var mContext: Context? = null

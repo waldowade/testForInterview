@@ -56,20 +56,17 @@ internal class CustomAdapter(mContext: Context, private var itemsList: List<User
         LoadImageTask(holder.mAvatarImageView).execute(item.avatar_url)
 
 
+        //pass important values to Userlaucher 
         holder.itemView.setOnClickListener(object : View.OnClickListener {
             override fun onClick(p0: View?) {
-                Toast.makeText(mContext, "Hello Javatpoint", Toast.LENGTH_SHORT).show();
-                var mUserDetailItem = UserLauncher(
+                var mUserLauncher = UserLauncher(
                     mContext!!,
                     item.avatar_url,
-                    //item.user_name,
-                    //item.bio,
                     item.login,
                     item.site_admin
-                    //item.location,
-                    //item.blog
                 )
-                mUserDetailItem.detailUserInfo()
+                //UserLauncher starts DetailActivity
+                mUserLauncher.detailUserInfo()
             }
 
         });

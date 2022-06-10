@@ -88,6 +88,7 @@ class DetailActivity : AppCompatActivity() {
         )
     }
 
+    //Web search runnable for searching then display on screen
     class UserDetailRunnable(
         mContext: Context,
         mSingleUserName: String,
@@ -105,7 +106,7 @@ class DetailActivity : AppCompatActivity() {
         var mbioTextView: TextView? = null
         var mLocationTextView: TextView? = null
         var mUrlTextView: TextView? = null
-        var mSiteAdminTextView:TextView? = null
+        var mSiteAdminTextView: TextView? = null
         var mHandler: Handler? = null
 
         init {

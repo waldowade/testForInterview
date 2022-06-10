@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 
+//Below values are all available for usages , after UserFragment gson parse was executed
 class UserItem(mContext: Context?) {
     val TAG = this.javaClass.simpleName
     var mContext: Context? = null
@@ -30,16 +31,4 @@ class UserItem(mContext: Context?) {
     init {
         this.mContext = mContext
     }
-// var userClick:UserClick = object : UserClick(mContext,
-//     avatar_url,
-//    user_name,
-//    bio,
-//    login,
-//    site_admin,
-//    location,
-//    blog) {
-//
-//}//later
-
-
 }

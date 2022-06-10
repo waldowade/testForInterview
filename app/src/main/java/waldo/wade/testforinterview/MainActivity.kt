@@ -14,6 +14,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+    }
+
+    override fun onResume() {
+        super.onResume()
         title = "Github users"
         viewPager = findViewById(R.id.pager)
 
@@ -21,7 +26,6 @@ class MainActivity : AppCompatActivity() {
         val pagerAdapter = FragmentSlidePagerAdapter(this)
         viewPager.adapter = pagerAdapter
     }
-
 
     private class FragmentSlidePagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
         override fun getItemCount(): Int {

@@ -19,7 +19,7 @@ import org.jsoup.nodes.Document
 import waldo.wade.testforinterview.ViewList.CustomAdapter
 import waldo.wade.testforinterview.ViewList.UserItem
 
-class UsersFragment(pageIndicator:Int) : Fragment() {
+class UsersFragment(pageIndicator: Int) : Fragment() {
     val TAG = this.javaClass.simpleName
     private var mActivity: MainActivity? = null
     private val itemsList = ArrayList<UserItem>()
@@ -27,9 +27,14 @@ class UsersFragment(pageIndicator:Int) : Fragment() {
 
     var mJsoupHandlerThread: HandlerThread? = null
     var mJsoupHandler: Handler? = null
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         mActivity = activity as MainActivity?
-        val mFragmentView = LayoutInflater.from(context).inflate(R.layout.fragment_users, container, false)
+        val mFragmentView =
+            LayoutInflater.from(context).inflate(R.layout.fragment_users, container, false)
 
         val recyclerView: RecyclerView = mFragmentView.findViewById(R.id.recyclerView)
 
@@ -45,40 +50,35 @@ class UsersFragment(pageIndicator:Int) : Fragment() {
         prepareItems()
         return mFragmentView
     }
+
+    //Web search runnable for searching users list then display on screen
     val mJsoupRunnable: Runnable = object : Runnable {
         override fun run() {
             mJsoupHandler!!.removeCallbacks(this)
             val doc: Document =
                 Jsoup.connect("https://api.github.com/users").ignoreContentType(true).get()
             val resultString: String = doc.body().text()
-            Log.d(TAG, "rrrrrresultString : ${resultString}")
-
             var mGson = Gson()
             val mUserItemArray: Array<UserItem> =
                 mGson.fromJson(resultString, Array<UserItem>::class.java)
-            when(pageIndicator){
-                1->{
+            when (pageIndicator) {
+                //page 1 users
+                1 -> {
                     for (i in 0 until 20) {
                         itemsList.add(mUserItemArray[i])
-                        Log.d(TAG, "iiiiiiii : ${i}")
                     }
                 }
-                2->{
+                //page 2 users
+                2 -> {
                     for (i in 20 until mUserItemArray.size) {
                         itemsList.add(mUserItemArray[i])
-                        Log.d(TAG, "iiiiiiii : ${i}")
                     }
                 }
             }
-
-
             GlobalScope.launch(Dispatchers.Main) {
                 customAdapter.notifyDataSetChanged()
             }
-
-
         }
-
     }
 
     private fun prepareItems() {

@@ -5,15 +5,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 
+//this class can be used for preparing important values calculation.
+//currently ,no calculation
 class UserLauncher(
     mContext: Context,
     avatar_url: String?,
-    //user_name: String?,
-    //bio: String?,
     login: String?,
     site_admin: String?,
-    //location: String?,
-    //blog: String?
 ) {
     val TAG = this.javaClass.simpleName
     var mContext: Context? = null
@@ -28,17 +26,6 @@ class UserLauncher(
         set(value) {
             field = value
         }
-
-    //    var user_name: String? = user_name
-//        get() = field
-//        set(value) {
-//            field = value
-//        }
-//    var bio: String? = bio
-//        get() = field
-//        set(value) {
-//            field = value
-//        }
     var login: String? = login
         get() = field
         set(value) {
@@ -49,24 +36,15 @@ class UserLauncher(
         set(value) {
             field = value
         }
-//    var location: String? = location
-//        get() = field
-//        set(value) {
-//            field = value
-//        }
-//    var blog: String? = blog
-//        get() = field
-//        set(value) {
-//            field = value
-//        }
 
-    fun detailUserInfo()
-    {
-        newDetailActivity(mContext!!, "${avatar_url}",
+    fun detailUserInfo() {
+        newDetailActivity(
+            mContext!!, "${avatar_url}",
             "${login}",
             "${site_admin}"
         )
     }
+
     fun newDetailActivity(
         mContext: Context, mAvatarUrl: String,
         mLogin: String,
@@ -74,9 +52,10 @@ class UserLauncher(
     ) {
 
         var myIntent = Intent()
-        myIntent.setClass(mContext,DetailActivity().javaClass)
+        myIntent.setClass(mContext, DetailActivity().javaClass)
         val mBundle = Bundle()
-        // 傳參
+
+        //Put Important values to bundle then start DetailActivity
         mBundle.putString("EXTRA_mAvatarUrl", mAvatarUrl)
         mBundle.putString("EXTRA_mLogin", mLogin)
         mBundle.putString("EXTRA_mSiteAdmin", mSiteAdmin)
