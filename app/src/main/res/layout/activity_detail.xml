@@ -67,7 +67,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:textSize="20dp"
+                android:textSize="25dp"
                 android:text="NameTextView" />
         </LinearLayout>
 
@@ -113,18 +113,18 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:gravity="center">
 
             <ImageView
                 android:id="@+id/LabelNameImageView"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
                 android:layout_centerHorizontal="true"
                 android:gravity="left"
                 android:paddingLeft="11dp"
-                android:src="@android:drawable/ic_menu_myplaces"></ImageView>
+                android:src="@drawable/simple_mans_head"></ImageView>
         </LinearLayout>
 
         <LinearLayout
@@ -136,6 +136,8 @@
                 android:id="@+id/LoginTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="20dp"
                 android:text="LoginTextView" />
         </LinearLayout>
     </LinearLayout>
@@ -147,18 +149,18 @@
         android:gravity="center">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:gravity="center">
 
             <ImageView
                 android:id="@+id/LabelLocationTImageView"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="53dp"
+                android:layout_height="53dp"
                 android:layout_centerHorizontal="true"
                 android:gravity="left"
                 android:paddingLeft="11dp"
-                android:src="@android:drawable/ic_menu_mylocation"></ImageView>
+                android:src="@drawable/location_marker"></ImageView>
         </LinearLayout>
 
         <LinearLayout
@@ -171,6 +173,8 @@
                 android:id="@+id/LocationTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="20dp"
                 android:text="NameTextView" />
         </LinearLayout>
 
@@ -182,18 +186,18 @@
         android:gravity="center">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:gravity="center">
 
             <ImageView
                 android:id="@+id/LabelUrlImageView"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
                 android:layout_centerHorizontal="true"
                 android:gravity="left"
                 android:paddingLeft="11dp"
-                android:src="@android:drawable/ic_menu_set_as"></ImageView>
+                android:src="@drawable/link_simple_horizontal"></ImageView>
         </LinearLayout>
 
         <LinearLayout
@@ -206,6 +210,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/blue"
+                android:textStyle="bold"
+                android:textSize="20dp"
                 android:text="UrlTextView" />
         </LinearLayout>
 
@@ -231,8 +237,8 @@
                     android:layout_height="80dp"
                     android:gravity="center"
                     android:paddingLeft="11dp"
-                    android:textStyle="italic"
-                    android:textSize="15dp"
+                    android:textStyle="italic|bold"
+                    android:textSize="20dp"
                     android:text="site_admin" />
             </LinearLayout>
         </LinearLayout>
